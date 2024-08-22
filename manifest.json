@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "Mistral Chat RTL",
+  "version": "1.0",
+  "description": "Enhances the Mistral Chat experience for right-to-left language users, including Persian and Arabic speakers, by adding right-to-left text support.",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting",
+    "tabs"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://chat.mistral.ai/chat*"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/icon16-inactive.png",
+      "48": "images/icon48-inactive.png",
+      "128": "images/icon128-inactive.png"
+    }
+  },
+  "icons": {
+    "16": "images/icon16-inactive.png",
+    "48": "images/icon48-inactive.png",
+    "128": "images/icon128-inactive.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}

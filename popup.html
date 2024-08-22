@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>Persian Enhancer</title>
+  <style>
+    body {
+      width: 300px;
+      font-family: 'Vazir', sans-serif;
+      direction: rtl;
+      text-align: center;
+      background-color: #f0f0f0;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      color: #007bff;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 14px;
+      margin-top: 30px;
+      color: #555;
+    }
+    button {
+      border: none;
+      padding: 10px 20px;
+      margin: 5px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+    #activate {
+      background-color: #dc3545;
+      color: white;
+    }
+    #activate:hover {
+      background-color: #c82333;
+    }
+    #deactivate {
+      background-color: #6c757d;
+      color: white;
+    }
+    #deactivate:hover {
+      background-color: #5a6268;
+    }
+    .footer-text {
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <h1>راست‌چین کردن صفحه چت Mistral</h1>
+  <button id="activate">فعال کردن</button>
+  <button id="deactivate">غیرفعال کردن</button>
+  <p class="footer-text">توجه: این اکستنشن فقط در صفحات <a href="https://chat.mistral.ai/chat" target="_blank">chat.mistral.ai/chat</a> فعال می‌شود.</p>
+  <script src="popup.js"></script>
+</body>
+</html>
