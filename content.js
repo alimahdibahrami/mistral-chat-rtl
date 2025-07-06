@@ -116,9 +116,7 @@ function detectPersianText(text) {
   if (!text || text.trim().length === 0) return false;
   
   const persianMatches = text.match(PERSIAN_REGEX);
-  if (!persianMatches) return false;
-  
-  const persianCharCount = persianMatches.length;
+  const persianCharCount = persianMatches ? persianMatches.length : 0;
   const totalCharCount = text.replace(/\s/g, '').length; // Exclude whitespace
   
   if (totalCharCount === 0) return false;
