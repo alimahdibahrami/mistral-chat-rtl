@@ -2,10 +2,10 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>Persian Enhancer</title>
+  <title>GitHub Copilot Persian RTL</title>
   <style>
     body {
-      width: 300px;
+      width: 320px;
       font-family: 'Vazir', sans-serif;
       direction: rtl;
       text-align: center;
@@ -16,47 +16,83 @@
     }
     h1 {
       color: #007bff;
-      font-size: 24px;
+      font-size: 22px;
+      margin-bottom: 15px;
+      line-height: 1.3;
+    }
+    .description {
+      font-size: 13px;
       margin-bottom: 20px;
+      color: #666;
+      line-height: 1.4;
     }
     p {
-      font-size: 14px;
-      margin-top: 30px;
+      font-size: 12px;
+      margin-top: 25px;
       color: #555;
+      line-height: 1.4;
     }
     button {
       border: none;
-      padding: 10px 20px;
+      padding: 12px 24px;
       margin: 5px;
       cursor: pointer;
       border-radius: 5px;
       font-size: 16px;
+      font-family: 'Vazir', sans-serif;
       transition: background-color 0.3s ease;
+      min-width: 100px;
     }
     #activate {
-      background-color: #dc3545;
+      background-color: #28a745;
       color: white;
     }
     #activate:hover {
-      background-color: #c82333;
+      background-color: #218838;
     }
     #deactivate {
-      background-color: #6c757d;
+      background-color: #dc3545;
       color: white;
     }
     #deactivate:hover {
-      background-color: #5a6268;
+      background-color: #c82333;
     }
     .footer-text {
+      font-size: 11px;
+    }
+    .feature-list {
+      text-align: right;
       font-size: 12px;
+      color: #666;
+      margin: 15px 0;
+    }
+    .feature-list li {
+      margin: 5px 0;
     }
   </style>
 </head>
 <body>
-  <h1>راست‌چین کردن صفحه چت Mistral</h1>
+  <h1>افزونه راست‌چین فارسی GitHub Copilot</h1>
+  
+  <div class="description">
+    تشخیص خودکار متن فارسی و راست‌چین کردن آن در GitHub Copilot
+  </div>
+
+  <ul class="feature-list">
+    <li>✓ تشخیص خودکار زبان فارسی</li>
+    <li>✓ راست‌چین کردن هوشمند</li>
+    <li>✓ بهینه‌سازی عملکرد</li>
+  </ul>
+
   <button id="activate">فعال کردن</button>
   <button id="deactivate">غیرفعال کردن</button>
-  <p class="footer-text">توجه: این اکستنشن فقط در صفحات <a href="https://chat.mistral.ai/chat" target="_blank">chat.mistral.ai/chat</a> فعال می‌شود.</p>
+  
+  <p class="footer-text">
+    توجه: این افزونه فقط در صفحات 
+    <a href="https://github.com/copilot" target="_blank">github.com/copilot</a> 
+    فعال می‌شود و به‌طور خودکار متن‌های فارسی را تشخیص می‌دهد.
+  </p>
+  
   <script src="popup.js"></script>
 </body>
 </html>

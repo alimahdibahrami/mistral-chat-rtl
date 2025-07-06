@@ -1,48 +1,80 @@
-# Mistral Chat RTL
+# GitHub Copilot Persian RTL
 
-A Chrome extension that enhances the Mistral Chat experience for right-to-left language users, including Persian and Arabic speakers, by adding right-to-left text support.
+افزونه کروم برای پشتیبانی خودکار از راست‌چین کردن متن فارسی در GitHub Copilot
 
-## Table of Contents
+A Chrome extension that automatically detects Persian text and applies right-to-left (RTL) direction in GitHub Copilot interface.
 
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [File Structure](#file-structure)
-- [Contributing](#contributing)
-- [Development](#development)
-- [Testing](#testing)
-- [License](#license)
-- [Contact](#contact)
-- [Acknowledgments](#acknowledgments)
+## ویژگی‌ها (Features)
 
-## Features
+### 🔍 تشخیص خودکار زبان فارسی (Automatic Persian Text Detection)
+- استفاده از الگوریتم پیشرفته برای تشخیص متن فارسی
+- بررسی نسبت کاراکترهای فارسی در متن
+- پردازش هوشمند محتوای دینامیک
 
-- Automatically applies right-to-left (RTL) text direction to the chat interface.
-- Supports multiple chat sessions with different IDs.
-- Ensures that the extension's styles are applied to newly opened tabs.
-- Easy to toggle on and off using the extension's popup menu.
+### 🔄 راست‌چین کردن خودکار (Automatic RTL Application)
+- اعمال خودکار جهت راست‌به‌چپ برای متن‌های فارسی
+- حفظ جهت چپ‌به‌راست برای متن‌های غیرفارسی
+- پشتیبانی از انواع عناصر متنی (textarea، input، div و...)
 
-## Installation
+### ⚡ بهینه‌سازی عملکرد (Performance Optimization)
+- استفاده از MutationObserver برای تشخیص تغییرات DOM
+- Debouncing برای جلوگیری از پردازش مکرر
+- پردازش تنها محتوای جدید و تغییریافته
 
-1. Clone the repository:
+### 🎯 تخصصی برای GitHub Copilot (GitHub Copilot Specific)
+- طراحی شده خصوصاً برای محیط GitHub Copilot
+- فعال تنها در آدرس `github.com/copilot`
+- رابط کاربری فارسی برای کنترل آسان
+
+## فهرست مطالب (Table of Contents)
+
+- [ویژگی‌ها (Features)](#ویژگیها-features)
+- [نصب (Installation)](#نصب-installation)
+- [استفاده (Usage)](#استفاده-usage)
+- [ساختار فایل‌ها (File Structure)](#ساختار-فایلها-file-structure)
+- [نحوه کارکرد (How It Works)](#نحوه-کارکرد-how-it-works)
+- [توسعه (Development)](#توسعه-development)
+- [تست (Testing)](#تست-testing)
+- [مجوز (License)](#مجوز-license)
+- [تماس (Contact)](#تماس-contact)
+
+## نصب (Installation)
+
+### نصب از طریق Developer Mode
+
+1. ریپازیتوری را کلون کنید:
    ```sh
    git clone https://github.com/alimahdibahrami/mistral-chat-rtl.git
    ```
-2. Open Chrome and go to `chrome://extensions/`.
-3. Enable "Developer mode" by toggling the switch in the top right corner.
-4. Click on "Load unpacked" and select the directory where you cloned the repository.
-5. The extension should now be installed and active.
 
-## Use in the form of development
+2. مرورگر Chrome را باز کرده و به آدرس `chrome://extensions/` بروید
 
-1. Open the Mistral Chat website (https://chat.mistral.ai/chat).
-2. The extension will automatically apply RTL styles to the chat interface.
-3. You can toggle the extension on and off using the extension's popup menu.
+3. گزینه "Developer mode" را در گوشه بالا راست فعال کنید
 
-## File Structure
+4. روی "Load unpacked" کلیک کرده و پوشه پروژه را انتخاب کنید
+
+5. افزونه نصب شده و آماده استفاده است
+
+## استفاده (Usage)
+
+### استفاده خودکار (Automatic Usage)
+
+1. به سایت GitHub Copilot بروید: `https://github.com/copilot`
+
+2. افزونه به‌طور خودکار متن‌های فارسی را تشخیص داده و راست‌چین می‌کند
+
+3. هیچ تنظیم اضافی نیاز نیست - همه چیز خودکار است!
+
+### کنترل دستی (Manual Control)
+
+- روی آیکون افزونه کلیک کنید
+- از دکمه‌های "فعال کردن" و "غیرفعال کردن" استفاده کنید
+- تغییرات بلافاصله اعمال می‌شوند
+
+## ساختار فایل‌ها (File Structure)
 
 ```
-mistral-chat-rtl/
+github-copilot-persian-rtl/
 ├── images/
 │   ├── icon16-inactive.png
 │   ├── icon48-inactive.png
@@ -50,85 +82,106 @@ mistral-chat-rtl/
 │   ├── icon16-active.png
 │   ├── icon48-active.png
 │   ├── icon128-active.png
-├── content.js
-├── styles.css
-├── popup.html
-├── popup.js
-├── background.js
-├── manifest.json
+├── content.js              # اسکریپت تشخیص و اعمال RTL
+├── styles.css              # استایل‌های کمکی
+├── popup.html              # رابط کاربری افزونه
+├── popup.js                # منطق رابط کاربری
+├── background.js           # مدیریت پس‌زمینه افزونه
+├── manifest.json           # تنظیمات افزونه
+├── Vazir.ttf              # فونت فارسی
 ├── README.md
 └── LICENSE
 ```
 
-- `manifest.json`: The manifest file that defines the extension's metadata and permissions.
-- `content.js`: The content script that applies the RTL styles to the chat interface.
-- `styles.css`: The CSS file that contains the RTL styles.
-- `popup.html`: The HTML file for the extension's popup menu.
-- `popup.js`: The JavaScript file that handles the popup menu's functionality.
-- `background.js`: The background script that manages the extension's state and applies styles to new tabs.
-- `images/`: Directory containing the extension's icons.
+### توضیح فایل‌ها:
 
-## Contributing
+- `manifest.json`: فایل تنظیمات افزونه شامل مجوزها و تنظیمات
+- `content.js`: اسکریپت اصلی تشخیص متن فارسی و اعمال RTL
+- `background.js`: مدیریت وضعیت افزونه و اعمال تغییرات روی تب‌های جدید
+- `popup.html/js`: رابط کاربری برای کنترل فعال/غیرفعال کردن
+- `styles.css`: استایل‌های کمکی و فونت فارسی
+- `images/`: آیکون‌های افزونه در حالت‌های مختلف
 
-Contributions are welcome! Please open an issue or submit a pull request.
+## نحوه کارکرد (How It Works)
 
-### Steps to Contribute
+### الگوریتم تشخیص زبان فارسی
 
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix.
-3. Make your changes and commit them.
-4. Push your changes to your fork.
-5. Open a pull request.
+```javascript
+// محدوده کاراکترهای فارسی در یونیکد
+const PERSIAN_REGEX = /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]/g;
 
-## Development
+// حداقل درصد کاراکترهای فارسی برای تشخیص
+const PERSIAN_THRESHOLD = 0.3; // 30%
+```
 
-### Prerequisites
+### نظارت بر تغییرات DOM
 
-- Node.js and npm (optional for development tools)
+- استفاده از `MutationObserver` برای تشخیص محتوای جدید
+- Debouncing با تاخیر 300 میلی‌ثانیه برای بهینه‌سازی
+- پردازش تنها عناصر تغییریافته
 
-### Setup
+### عملکرد هوشمند
 
-1. Clone the repository:
-   ```sh
-   git clone https://github.com/alimahdibahrami/mistral-chat-rtl.git
-   ```
-2. Navigate to the project directory:
-   ```sh
-   cd mistral-chat-rtl
-   ```
-3. Install dependencies (if any):
-   ```sh
-   npm install
-   ```
+1. **تشخیص**: بررسی نسبت کاراکترهای فارسی در متن
+2. **اعمال**: تنظیم `direction: rtl` و `text-align: right`
+3. **نظارت**: نظارت مستمر بر تغییرات محتوا
+4. **بهینه‌سازی**: جلوگیری از پردازش مکرر عناصر
 
-### Building
+## توسعه (Development)
 
-If you have any build tools or scripts, you can add them here.
+### پیش‌نیازها
 
-## Testing
+- مرورگر Google Chrome
+- دانش پایه JavaScript و Chrome Extensions API
 
-### Running the Extension in Developer Mode
+### راه‌اندازی محیط توسعه
 
-1. Open Chrome and go to `chrome://extensions/`.
-2. Enable "Developer mode" by toggling the switch in the top right corner.
-3. Click on "Load unpacked" and select the project directory.
-4. The extension should now be installed and active.
+1. فایل‌های پروژه را ویرایش کنید
+2. به `chrome://extensions/` بروید
+3. روی "Reload" کلیک کنید تا تغییرات اعمال شود
+4. تست کنید
 
-### Testing the Extension
+### ویژگی‌های قابل توسعه
 
-1. Open the Mistral Chat website (https://chat.mistral.ai/chat).
-2. Verify that the RTL styles are applied correctly.
-3. Toggle the extension on and off using the popup menu and ensure the styles are applied and removed as expected.
+- **تشخیص زبان‌های بیشتر**: افزودن پشتیبانی از عربی، اردو و...
+- **تنظیمات پیشرفته**: آستانه تشخیص قابل تنظیم
+- **بهینه‌سازی بیشتر**: کاهش مصرف CPU و RAM
 
-## License
+## تست (Testing)
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+### تست در حالت Developer
 
-## Contact
+1. به `chrome://extensions/` بروید
+2. حالت "Developer mode" را فعال کنید
+3. افزونه را با "Load unpacked" بارگذاری کنید
+4. به `https://github.com/copilot` بروید
 
-For any questions or suggestions, please contact alimahdibahrami2001@gmail.com.
+### تست عملکرد
 
-## Acknowledgments
+1. **تست تشخیص**: متن فارسی تایپ کنید و بررسی کنید RTL اعمال شود
+2. **تست عملکرد**: بررسی کنید که افزونه سرعت صفحه را کاهش ندهد
+3. **تست UI**: popup را باز کرده و دکمه‌ها را تست کنید
 
-- Thanks to the Mistral Chat team for providing the chat service.
-- Thanks to the open-source community for their contributions and support.
+### تست‌های مختلف
+
+```
+✅ تشخیص متن فارسی خالص
+✅ تشخیص متن ترکیبی فارسی-انگلیسی  
+✅ عدم تشخیص متن انگلیسی خالص
+✅ عملکرد روی عناصر مختلف (textarea, div, span)
+✅ نظارت بر تغییرات دینامیک DOM
+```
+
+## مجوز (License)
+
+این پروژه تحت مجوز MIT منتشر شده است - فایل [LICENSE](LICENSE) را برای جزئیات بیشتر ببینید.
+
+## تماس (Contact)
+
+برای هرگونه سوال یا پیشنهاد، با ایمیل alimahdibahrami2001@gmail.com تماس بگیرید.
+
+## تشکر (Acknowledgments)
+
+- تشکر از تیم GitHub برای ارائه سرویس Copilot
+- تشکر از جامعه متن‌باز برای حمایت و مشارکت
+- تشکر از توسعه‌دهندگان فونت Vazir

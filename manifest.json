@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Mistral Chat RTL",
+  "name": "GitHub Copilot Persian RTL",
   "version": "1.0",
-  "description": "Enhances the Mistral Chat experience for right-to-left language users, including Persian and Arabic speakers, by adding right-to-left text support.",
+  "description": "افزونه کروم برای پشتیبانی از راست‌چین کردن خودکار متن فارسی در GitHub Copilot",
   "permissions": [
     "activeTab",
     "storage",
@@ -11,7 +11,7 @@
   ],
   "content_scripts": [
     {
-      "matches": ["https://chat.mistral.ai/chat*"],
+      "matches": ["https://github.com/copilot*"],
       "js": ["content.js"],
       "css": ["styles.css"]
     }
